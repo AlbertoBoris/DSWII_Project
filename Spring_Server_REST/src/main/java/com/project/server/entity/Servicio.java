@@ -36,7 +36,7 @@ public class Servicio {
 	@JoinColumn(name = "ID_HORARI")
 	private Horario horario;
 	
-	@OneToMany(mappedBy = "estado") /* Uno a Muchos */
+	@OneToMany(mappedBy = "servicio") /* Uno a Muchos */
 	@JsonIgnore
 	private List<Pedido> listaPedido;
 
