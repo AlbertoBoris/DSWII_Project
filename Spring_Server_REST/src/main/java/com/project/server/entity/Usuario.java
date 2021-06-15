@@ -1,6 +1,7 @@
 package com.project.server.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -55,6 +59,10 @@ public class Usuario implements Serializable {
 	@ManyToOne /* Muchos a Uno */
 	@JoinColumn(name = "ID_DIST")
 	private Distrito distrito;
+
+	@OneToMany(mappedBy = "usuario") /* Uno a Muchos */
+	@JsonIgnore
+	private List<Mascota> listaMascota;
 
 	/* Getters and Setters */
 	public int getCodigo() {
@@ -105,11 +113,11 @@ public class Usuario implements Serializable {
 		this.apodo = apodo;
 	}
 
-	public String getContraseña() {
+	public String getContrasena() {
 		return contrasena;
 	}
 
-	public void setContraseña(String contrasena) {
+	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
 
@@ -151,6 +159,14 @@ public class Usuario implements Serializable {
 
 	public void setDistrito(Distrito distrito) {
 		this.distrito = distrito;
+	}
+
+	public List<Mascota> getListaMascota() {
+		return listaMascota;
+	}
+
+	public void setListaMascota(List<Mascota> listaMascota) {
+		this.listaMascota = listaMascota;
 	}
 
 }
