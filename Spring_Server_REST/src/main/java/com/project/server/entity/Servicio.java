@@ -39,6 +39,10 @@ public class Servicio {
 	@OneToMany(mappedBy = "servicio") /* Uno a Muchos */
 	@JsonIgnore
 	private List<Pedido> listaPedido;
+	
+	@OneToMany(mappedBy = "servicioRecl") /* Uno a Muchos */
+	@JsonIgnore
+	private List<Reclamo> listaReclamo;
 
 	public int getCodigo() {
 		return codigo;
