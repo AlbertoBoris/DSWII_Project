@@ -10,7 +10,10 @@ import com.project.server.entity.Mascota;
 import com.project.server.entity.Usuario;
 
 public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
-	
+
 	List<Usuario> findByDni(String dni);
+
+	@Query("select u from Usuario u where u.correo=?1 and u.contrasena=?2")
+	Usuario findByLogin(String correo, String password);
 
 }

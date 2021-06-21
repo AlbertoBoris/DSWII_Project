@@ -56,4 +56,10 @@ public class UsuarioController {
 	public List<Usuario> consulta(@PathVariable("dni")String dni){
 		return servicio.listaXDni(dni);
 	}
+	
+	@GetMapping("/log/{correo}/{password}")
+	@ResponseBody
+	public Usuario ingresar(@PathVariable("correo")String correo, @PathVariable("password")String password) {
+		return servicio.login(correo, password);
+	}
 }

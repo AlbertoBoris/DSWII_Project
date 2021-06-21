@@ -34,5 +34,10 @@ public class UsuarioServiceImpl {
 	public List<Usuario> listaXDni(String dni) {
 		return usuarioDAO.findByDni(dni);
 	}
+	
+	public Usuario login(String correo, String password){
+		return usuarioDAO.findByLogin(correo, password);
+	}
+
 
 }
