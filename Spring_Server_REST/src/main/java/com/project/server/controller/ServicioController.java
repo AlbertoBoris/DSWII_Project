@@ -50,5 +50,11 @@ public class ServicioController {
 	public Optional<Servicio> buscar(@PathVariable("codigo") int cod) {
 		return servicio.buscar(cod);
 	}
+	
+	@GetMapping("/consulta/{nombre}")
+	@ResponseBody
+	public List<Servicio> consulta(@PathVariable("nombre")String nombre) {
+		return servicio.listaServicios(nombre);
+	}
 
 }

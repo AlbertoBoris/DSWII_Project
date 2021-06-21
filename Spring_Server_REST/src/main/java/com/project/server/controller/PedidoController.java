@@ -23,32 +23,43 @@ public class PedidoController {
 
 	@Autowired
 	private PedidoServiceImpl servicio;
-	
+
 	@GetMapping("/listar")
 	@ResponseBody
-	public List<Pedido> listar(){
+	public List<Pedido> listar() {
 		return servicio.listAll();
 	}
-	
+
 	@PostMapping("/registrar")
 	public void registrar(@RequestBody Pedido bean) {
 		servicio.guardar(bean);
 	}
-	
+
 	@PutMapping("/actualizar")
 	public void actualizar(@RequestBody Pedido bean) {
 		servicio.guardar(bean);
 	}
-	
+
 	@DeleteMapping("/eliminar/{codigo}")
-	public void eliminar(@PathVariable("codigo")int cod) {
+	public void eliminar(@PathVariable("codigo") int cod) {
 		servicio.eliminar(cod);
 	}
-	
+
 	@GetMapping("/buscar/{codigo}")
 	@ResponseBody
-	public Optional<Pedido> buscar(@PathVariable("codigo")int cod) {
+	public Optional<Pedido> buscar(@PathVariable("codigo") int cod) {
 		return servicio.buscar(cod);
 	}
+
+	@GetMapping("/consulta/{usuario}")
+	@ResponseBody
+	public List<Pedido> consulta(@PathVariable("usuario") String usuario) {
+		return servicio.listaPedido(usuario);
+	}
 	
+	@GetMapping("/usuConsulta/{usuario}")
+	@ResponseBody
+	public List<Pedido> consultaUsu(@PathVariable("usuario") int usuario) {
+		return servicio.listaPedidoUsu(usuario);
+	}
 }

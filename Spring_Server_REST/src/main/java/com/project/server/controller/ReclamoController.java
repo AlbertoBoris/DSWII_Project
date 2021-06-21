@@ -51,4 +51,10 @@ public class ReclamoController {
 		return servicio.buscar(cod);
 	}
 
+	@GetMapping("/consulta/{nombre}")
+	@ResponseBody
+	public List<Reclamo> consulta(@PathVariable("nombre") String nombre) {
+		return servicio.listaReclamo(nombre);
+	}
+
 }

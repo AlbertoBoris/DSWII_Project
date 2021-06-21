@@ -30,5 +30,13 @@ public class PedidoServiceImpl {
 	public Optional<Pedido> buscar(int cod) {
 		return pedidoDAO.findById(cod);
 	}
+	
+	public List<Pedido> listaPedido(String usuario){
+		return pedidoDAO.listaPorUsuario(usuario);
+	}
+	
+	public List<Pedido> listaPedidoUsu(int usuario){
+		return pedidoDAO.listaPorCodUsuario(usuario);
+	}
 
 }

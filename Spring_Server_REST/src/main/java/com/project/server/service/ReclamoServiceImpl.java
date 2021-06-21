@@ -31,4 +31,8 @@ public class ReclamoServiceImpl {
 		return reclamoDAO.findById(cod);
 	}
 
+	public List<Reclamo> listaReclamo(String nombre) {
+		return reclamoDAO.listaPorAsunto(nombre);
+	}
+
 }

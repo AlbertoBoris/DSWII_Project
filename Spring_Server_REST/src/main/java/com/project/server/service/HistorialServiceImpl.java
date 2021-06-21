@@ -30,5 +30,9 @@ public class HistorialServiceImpl {
 	public Optional<Historial> buscar(int cod) {
 		return historialDAO.findById(cod);
 	}
+	
+	public List<Historial> listaHistorial(String mascota){
+		return historialDAO.listaPorMascota(mascota);
+	}
 
 }

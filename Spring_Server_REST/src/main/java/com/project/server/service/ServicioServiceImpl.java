@@ -31,4 +31,8 @@ public class ServicioServiceImpl {
 		return servicioDAO.findById(cod);
 	}
 
+	public List<Servicio> listaServicios(String nombre) {
+		return servicioDAO.listaPorNombre(nombre);
+	}
+
 }

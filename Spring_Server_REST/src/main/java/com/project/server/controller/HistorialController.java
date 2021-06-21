@@ -51,4 +51,10 @@ public class HistorialController {
 		return servicio.buscar(cod);
 	}
 
+	@GetMapping("/consulta/{mascota}")
+	@ResponseBody
+	public List<Historial> consulta(@PathVariable("mascota") String mascota) {
+		return servicio.listaHistorial(mascota);
+	}
+
 }
