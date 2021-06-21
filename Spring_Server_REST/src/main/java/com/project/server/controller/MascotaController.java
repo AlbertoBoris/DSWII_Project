@@ -51,5 +51,10 @@ public class MascotaController {
 		return servicio.buscar(cod);
 	}
 	
+	@GetMapping("/consulta2/{usuario}")
+	@ResponseBody
+	public List<Mascota> consulta(@PathVariable("usuario")int usuario){
+		return servicio.listaXUsuario(usuario);
+	}
 
 }

@@ -30,5 +30,9 @@ public class MascotaServiceImpl {
 	public Optional<Mascota> buscar(int cod) {
 		return mascotaDAO.findById(cod);
 	}
+	
+	public List<Mascota> listaXUsuario(int usuario){
+		return mascotaDAO.listaPorUsuario(usuario);
+	}
 
 }

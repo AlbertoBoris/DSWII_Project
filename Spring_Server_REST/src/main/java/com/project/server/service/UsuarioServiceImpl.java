@@ -31,4 +31,8 @@ public class UsuarioServiceImpl {
 		return usuarioDAO.findById(cod);
 	}
 
+	public List<Usuario> listaXDni(String dni) {
+		return usuarioDAO.findByDni(dni);
+	}
+
 }

@@ -23,32 +23,37 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioServiceImpl servicio;
-	
+
 	@GetMapping("/listar")
 	@ResponseBody
-	public List<Usuario> listar(){
+	public List<Usuario> listar() {
 		return servicio.listAll();
 	}
-	
+
 	@PostMapping("/registrar")
 	public void registrar(@RequestBody Usuario bean) {
 		servicio.guardar(bean);
 	}
-	
+
 	@PutMapping("/actualizar")
 	public void actualizar(@RequestBody Usuario bean) {
 		servicio.guardar(bean);
 	}
-	
+
 	@DeleteMapping("/eliminar/{codigo}")
-	public void eliminar(@PathVariable("codigo")int cod) {
+	public void eliminar(@PathVariable("codigo") int cod) {
 		servicio.eliminar(cod);
 	}
-	
+
 	@GetMapping("/buscar/{codigo}")
 	@ResponseBody
-	public Optional<Usuario> buscar(@PathVariable("codigo")int cod) {
+	public Optional<Usuario> buscar(@PathVariable("codigo") int cod) {
 		return servicio.buscar(cod);
 	}
-	
+
+	@GetMapping("/consulta1/{dni}")
+	@ResponseBody
+	public List<Usuario> consulta(@PathVariable("dni")String dni){
+		return servicio.listaXDni(dni);
+	}
 }
